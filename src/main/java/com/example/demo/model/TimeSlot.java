@@ -1,7 +1,8 @@
 package com.example.demo.model;
 
-import jakarta.annotation.Nonnull;
-import jakarta.persistence.*;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +27,7 @@ public class TimeSlot {
     @Column(name = "booked", nullable = false, columnDefinition = "TINYINT(1)")
     private Boolean booked;
 
-    @Nonnull
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "service_professional_id")
     private ServiceProfessional serviceProfessional;

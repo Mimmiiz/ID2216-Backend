@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
-import jakarta.annotation.Nonnull;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +18,7 @@ public class ServiceProfessional {
     private Integer id;
 
     @Column(name = "service_professional_name", nullable = false, length = 100)
-    private String serviceProfessionalName;
+    private String name;
 
     @Column(name = "email", nullable = false)
     private String email;

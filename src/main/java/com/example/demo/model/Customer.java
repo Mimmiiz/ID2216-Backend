@@ -1,12 +1,12 @@
 package com.example.demo.model;
 
-import jakarta.annotation.Nonnull;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 
@@ -45,7 +45,7 @@ public class Customer {
     @Column(name = "timestamp")
     private Timestamp timestamp;
 
-    @Nonnull
+    @NotNull
     @OneToOne
     @JoinColumn(name = "time_slot_id")
     private TimeSlot timeSlot;
