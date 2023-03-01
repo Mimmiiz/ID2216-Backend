@@ -18,8 +18,8 @@ public class TimeSlotController {
     @Autowired
     private TimeSlotService timeSlotService;
 
-    @GetMapping("/time-slots")
     /* Returns the time slots between a range of dates for a given service professional */
+    @GetMapping("/timeSlots")
     public List<TimeSlot> getTimeSlotsInRange(@RequestParam(value = "startDate") LocalDate startDate,
                                               @RequestParam(value = "endDate") LocalDate endDate,
                                               @RequestParam(value = "serviceProfessionalId") Integer serviceProfessionalId) {
@@ -28,7 +28,7 @@ public class TimeSlotController {
 
     /* Updates the booked field of the given time slot.
     Returns conflict if booked is the same as the value already in the database */
-    @PutMapping("/time-slots/{id}")
+    @PutMapping("/timeSlots/{id}")
     public ResponseEntity<String> updateTimeSlotBooked(@PathVariable("id") Integer id, @RequestParam(value = "booked") Boolean booked) {
         int i = timeSlotService.updateTimeSlotBooked(id, booked);
         if (i == 1 && booked) {
