@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.model.TimeSlot;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -13,5 +14,9 @@ import java.util.List;
 public interface TimeSlotRepository extends CrudRepository<TimeSlot, Integer> {
 
     @Query(value = "SELECT * FROM time_slot WHERE ?1 < date_time AND date_time < ?2 AND service_professional_id = ?3", nativeQuery = true)
-    public List<TimeSlot> findTimeSlotsInRange(LocalDate startDate, LocalDate endDate, Integer serviceProfessionalId);
+    List<TimeSlot> findTimeSlotsInRange(LocalDate startDate, LocalDate endDate, Integer serviceProfessionalId);
+
+    @Modifying
+    @Query(value = "UPDATE time_slot SET booked = :booked WHERE id = :id and booked != :booked", countQuery = "select 1", nativeQuery = true)
+    int updateTimeSlotBooked(@Param("id") Integer id, @Param("booked") Boolean booked);
 }
