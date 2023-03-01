@@ -28,7 +28,7 @@ public class TimeSlot {
     private Boolean booked;
 
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "service_professional_id")
-    private ServiceProfessional serviceProfessional;
+    //@ManyToOne
+    //@JoinColumn(name = "service_professional_id")
+    private Integer serviceProfessionalId;
 }
