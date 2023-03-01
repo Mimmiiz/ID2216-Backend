@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class ServiceProfessionalService {
 
@@ -15,5 +16,13 @@ public class ServiceProfessionalService {
 
     public ServiceProfessional getServiceProfessionalById(Integer id) {
         return serviceProfessionalRepository.findById(id).get();
+    }
+
+    public void save(ServiceProfessional serviceprofessional) {
+        serviceProfessionalRepository.save(serviceprofessional);
+    }
+
+    public List<ServiceProfessional> getServiceProfessional() {
+        return serviceProfessionalRepository.findAll();
     }
 }
