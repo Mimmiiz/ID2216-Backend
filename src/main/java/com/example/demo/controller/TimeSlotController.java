@@ -26,6 +26,12 @@ public class TimeSlotController {
         return timeSlotService.getTimeSlotsInRange(startDate, endDate, serviceProfessionalId);
     }
 
+    @GetMapping("/freeTimeSlots")
+    public List<TimeSlot> getFreeTimeSlots(@RequestParam(value = "date") LocalDate date,
+                                           @RequestParam(value = "serviceProfessionalId") Integer serviceProfessionalId) {
+        return timeSlotService.getFreeTimeSlots(date, serviceProfessionalId);
+    }
+
     /* Updates the booked field of the given time slot.
     Returns conflict if booked is the same as the value already in the database */
     @PutMapping("/timeSlots/{id}")

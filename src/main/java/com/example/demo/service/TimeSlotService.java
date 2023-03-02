@@ -25,4 +25,8 @@ public class TimeSlotService {
     public int updateTimeSlotBooked(Integer id, Boolean booked) {
         return timeSlotRepository.updateTimeSlotBooked(id, booked);
     }
+
+    public List<TimeSlot> getFreeTimeSlots(LocalDate date, Integer serviceProfessionalId) {
+        return timeSlotRepository.findFreeTimeSlots(date, date.plusDays(1), serviceProfessionalId);
+    }
 }
