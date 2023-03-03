@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.Customer;
@@ -24,7 +26,13 @@ public class CustomerController {
     }
 
     @PostMapping("/customers-post")
-    public void save(@RequestBody Customer customer){
-        customerService.save(customer);
+    public ResponseEntity<Customer> save(@RequestBody Customer customer){
+        try {
+            customerService.save(customer);
+        } catch (Exception e) {
+            return new ResponseEntity<Customer>(customer, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+        
     }
 }
