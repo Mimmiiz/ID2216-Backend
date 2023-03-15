@@ -22,7 +22,8 @@ public class ServiceProfessionalService {
         serviceProfessionalRepository.save(serviceprofessional);
     }
 
-    public List<ServiceProfessional> getServiceProfessional() {
-        return serviceProfessionalRepository.findAll();
+    public List<ServiceProfessional> getServiceProfessional(String subCategory) {
+//        return serviceProfessionalRepository.findAll();
+        return serviceProfessionalRepository.findByServiceSubcategory(subCategory);
     }
 }

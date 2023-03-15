@@ -21,8 +21,8 @@ public class ServiceProfessionalController {
     }
 
     @GetMapping(value = "/allserviceprofessionals")
-    public List<ServiceProfessional> getServiceProfessional() {
-        return serviceProfessionalService.getServiceProfessional();
+    public List<ServiceProfessional> getServiceProfessional(@RequestParam(value = "service_subcategory") String subCategory) {
+        return serviceProfessionalService.getServiceProfessional(subCategory);
     }
 
     @PostMapping(value = "/saveserviceProfessional")
