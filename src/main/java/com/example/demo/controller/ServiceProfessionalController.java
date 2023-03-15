@@ -25,6 +25,12 @@ public class ServiceProfessionalController {
         return serviceProfessionalService.getServiceProfessional();
     }
 
+    @GetMapping(value = "/getServiceProfessionalFromCategory")
+    public List<ServiceProfessional> getServiceProfessionalFromCategory(
+            @RequestParam(value = "service_subcategory") String subCategory) {
+        return serviceProfessionalService.getServiceProfessionalFromSubcategory(subCategory);
+    }
+
     @PostMapping(value = "/saveserviceProfessional")
     public ResponseEntity<String> save(@RequestBody ServiceProfessional serviceprofessional){
         try {
