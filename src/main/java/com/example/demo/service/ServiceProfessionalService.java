@@ -30,4 +30,9 @@ public class ServiceProfessionalService {
 //        return serviceProfessionalRepository.findAll();
         return serviceProfessionalRepository.findByServiceSubcategory(subCategory);
     }
+
+    public List<ServiceProfessional> getServiceProfessionalByPhoneNumberAndSubcategory(String serviceSubcategory,
+                                                                                       String phoneNumber) {
+        return serviceProfessionalRepository.findByPhoneNumberAndSubcategory(serviceSubcategory, phoneNumber);
+    }
 }

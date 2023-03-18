@@ -29,4 +29,8 @@ public class TimeSlotService {
     public List<TimeSlot> getFreeTimeSlots(LocalDate date, Integer serviceProfessionalId) {
         return timeSlotRepository.findFreeTimeSlots(date, date.plusDays(1), serviceProfessionalId);
     }
+
+    public void insertTimeSlots(List<TimeSlot> timeSlots) {
+        timeSlotRepository.saveAll(timeSlots);
+    }
 }
